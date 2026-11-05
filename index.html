@@ -12,9 +12,7 @@
     }
     body {
       font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
-      line-height: 1.6;
       background-color: #f8f9fa;
-      color: #333;
     }
 
     /* 導覽列 */
@@ -47,7 +45,6 @@
 
     /* 首頁 1:5 寬幅橫幅 (G001) */
     .hero-banner {
-      position: relative;
       width: 100%;
       overflow: hidden;
     }
@@ -58,62 +55,6 @@
       object-position: center;
       display: block;
     }
-    .banner-overlay {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0, 0, 0, 0.35);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      color: #fff;
-      text-align: center;
-      padding: 0 20px;
-    }
-    .banner-overlay h1 {
-      font-size: 2.5rem;
-      margin-bottom: 10px;
-      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
-    }
-    .banner-overlay p {
-      font-size: 1.2rem;
-      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
-    }
-
-    /* 內文區塊 */
-    .container {
-      max-width: 1000px;
-      margin: 50px auto;
-      padding: 0 20px;
-    }
-    .about-section {
-      background: #fff;
-      padding: 40px;
-      border-radius: 8px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      text-align: center;
-    }
-    .about-section h2 {
-      font-size: 1.8rem;
-      margin-bottom: 15px;
-      color: #2c3e50;
-    }
-    .btn {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #3498db;
-      color: #fff;
-      text-decoration: none;
-      border-radius: 5px;
-      transition: background-color 0.3s;
-    }
-    .btn:hover {
-      background-color: #2980b9;
-    }
 
     /* 頁尾 */
     footer {
@@ -121,13 +62,13 @@
       color: #888;
       text-align: center;
       padding: 20px;
-      margin-top: 60px;
+      margin-top: 40px;
     }
   </style>
 </head>
 <body>
 
-  <!-- 導覽列（超連結連至 works.html） -->
+  <!-- 導覽列 -->
   <nav>
     <div class="logo">學系名稱</div>
     <ul>
@@ -138,21 +79,8 @@
 
   <!-- 首頁橫幅 (G001.jpg) -->
   <header class="hero-banner">
-    <img src="G001.jpg" alt="首頁橫幅照片 G001">
-    <div class="banner-overlay">
-      <h1>歡迎來到我們的學系</h1>
-      <p>探索創意與專業的無限可能</p>
-    </div>
+    <img src="G001.jpg" alt="G001">
   </header>
-
-  <!-- 簡介區塊 -->
-  <div class="container">
-    <section class="about-section">
-      <h2>關於本系</h2>
-      <p>這裡可以填寫學系的簡介、教學目標或最新公告。我們致力於培育優秀人才，並提供良好的學習與創作環境。</p>
-      <a href="works.html" class="btn">觀看學生作品展覽 &rarr;</a>
-    </section>
-  </div>
 
   <footer>
     <p>&copy; 2026 學系名稱 All Rights Reserved.</p>
