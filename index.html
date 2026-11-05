@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>學系官方網站</title>
+  <title>學系首頁</title>
   <style>
-    /* 基礎重置與樣式 */
     * {
       box-sizing: border-box;
       margin: 0;
@@ -39,9 +38,10 @@
     nav a {
       color: #ecf0f1;
       text-decoration: none;
+      font-weight: 500;
       transition: color 0.3s;
     }
-    nav a:hover {
+    nav a:hover, nav a.active {
       color: #3498db;
     }
 
@@ -53,8 +53,8 @@
     }
     .hero-banner img {
       width: 100%;
-      aspect-ratio: 5 / 1; /* 設定寬高比約 5:1 (長寬比 1:5) */
-      object-fit: cover;   /* 自動裁切確保填滿不變形 */
+      aspect-ratio: 5 / 1; /* 1:5 寬高比例 */
+      object-fit: cover;
       object-position: center;
       display: block;
     }
@@ -64,7 +64,7 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0, 0, 0, 0.35); /* 暗色遮罩讓文字更清晰 */
+      background: rgba(0, 0, 0, 0.35);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -83,66 +83,36 @@
       text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
-    /* 主要內容區塊 */
-    container {
-      max-width: 1200px;
-      margin: 40px auto;
+    /* 內文區塊 */
+    .container {
+      max-width: 1000px;
+      margin: 50px auto;
       padding: 0 20px;
-      display: block;
     }
-
-    .section-title {
-      text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      position: relative;
-    }
-    .section-title::after {
-      content: '';
-      display: block;
-      width: 60px;
-      height: 4px;
-      background-color: #3498db;
-      margin: 10px auto 0;
-      border-radius: 2px;
-    }
-
-    /* 學生作品網格展示 (G002, G003 等) */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 25px;
-    }
-
-    .portfolio-card {
+    .about-section {
       background: #fff;
+      padding: 40px;
       border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      text-align: center;
     }
-    .portfolio-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.15);
-    }
-    .portfolio-card img {
-      width: 100%;
-      height: 220px;
-      object-fit: cover;
-      display: block;
-    }
-    .portfolio-info {
-      padding: 20px;
-    }
-    .portfolio-info h3 {
-      font-size: 1.25rem;
-      margin-bottom: 8px;
+    .about-section h2 {
+      font-size: 1.8rem;
+      margin-bottom: 15px;
       color: #2c3e50;
     }
-    .portfolio-info p {
-      font-size: 0.95rem;
-      color: #666;
-      line-height: 1.5;
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 24px;
+      background-color: #3498db;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background-color 0.3s;
+    }
+    .btn:hover {
+      background-color: #2980b9;
     }
 
     /* 頁尾 */
@@ -157,18 +127,17 @@
 </head>
 <body>
 
-  <!-- 導覽列 -->
+  <!-- 導覽列（超連結連至 works.html） -->
   <nav>
     <div class="logo">學系名稱</div>
     <ul>
-      <li><a href="#home">首頁</a></li>
-      <li><a href="#works">學生作品</a></li>
-      <li><a href="#about">關於我們</a></li>
+      <li><a href="index.html" class="active">首頁</a></li>
+      <li><a href="works.html">學生作品</a></li>
     </ul>
   </nav>
 
-  <!-- 首頁橫幅：使用 G001.jpg (長寬比 1:5 寬幅) -->
-  <header class="hero-banner" id="home">
+  <!-- 首頁橫幅 (G001.jpg) -->
+  <header class="hero-banner">
     <img src="G001.jpg" alt="首頁橫幅照片 G001">
     <div class="banner-overlay">
       <h1>歡迎來到我們的學系</h1>
@@ -176,45 +145,15 @@
     </div>
   </header>
 
-  <!-- 學生作品專區 -->
-  <container id="works">
-    <h2 class="section-title">學生作品展示</h2>
-    <div class="portfolio-grid">
-      
-      <!-- 作品 1 (使用 G002) -->
-      <div class="portfolio-card">
-        <img src="G002.jpg" alt="學生作品 G002">
-        <div class="portfolio-info">
-          <h3>作品名稱 A</h3>
-          <p>創作者：學生姓名</p>
-          <p>這是一段關於作品 G002 的簡短說明與創作理念描述。</p>
-        </div>
-      </div>
+  <!-- 簡介區塊 -->
+  <div class="container">
+    <section class="about-section">
+      <h2>關於本系</h2>
+      <p>這裡可以填寫學系的簡介、教學目標或最新公告。我們致力於培育優秀人才，並提供良好的學習與創作環境。</p>
+      <a href="works.html" class="btn">觀看學生作品展覽 &rarr;</a>
+    </section>
+  </div>
 
-      <!-- 作品 2 (使用 G003) -->
-      <div class="portfolio-card">
-        <img src="G003.jpg" alt="學生作品 G003">
-        <div class="portfolio-info">
-          <h3>作品名稱 B</h3>
-          <p>創作者：學生姓名</p>
-          <p>這是一段關於作品 G003 的簡短說明與創作理念描述。</p>
-        </div>
-      </div>
-
-      <!-- 作品 3 (預留位置範例) -->
-      <div class="portfolio-card">
-        <img src="https://via.placeholder.com/600x400?text=Work+03" alt="預留作品範例">
-        <div class="portfolio-info">
-          <h3>作品名稱 C</h3>
-          <p>創作者：學生姓名</p>
-          <p>展示專題製作、數位設計或相關學術研究成果。</p>
-        </div>
-      </div>
-
-    </div>
-  </container>
-
-  <!-- 頁尾 -->
   <footer>
     <p>&copy; 2026 學系名稱 All Rights Reserved.</p>
   </footer>
