@@ -152,7 +152,7 @@
         }
 
         /* --------------------------------------------------
-         * Main Content Area (純照片區與純影片區)
+         * Main Content Area (2張純照片區 + 純影片區)
          * -------------------------------------------------- */
         main {
             flex-grow: 1;
@@ -162,8 +162,8 @@
         /* 照片區域 */
         .image-gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
+            grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+            gap: 30px;
             margin-bottom: 50px;
         }
 
@@ -182,7 +182,7 @@
 
         .gallery-img {
             width: 100%;
-            height: 240px;
+            height: 280px;
             object-fit: cover;
             display: block;
         }
@@ -311,13 +311,9 @@
                 box-shadow: var(--shadow-md);
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .image-gallery { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -352,16 +348,13 @@
     <main>
         <div class="container">
             
-            <!-- 1. 純照片區 -->
+            <!-- 1. 純照片區 (2 張照片) -->
             <div class="image-gallery">
                 <div class="gallery-item">
-                    <img src="graph/work1.jpg" alt="照片 1" class="gallery-img">
+                    <img src="graph/work1.jpg" alt="作品照片 1" class="gallery-img">
                 </div>
                 <div class="gallery-item">
-                    <img src="graph/work2.jpg" alt="照片 2" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="graph/work3.jpg" alt="照片 3" class="gallery-img">
+                    <img src="graph/work2.jpg" alt="作品照片 2" class="gallery-img">
                 </div>
             </div>
 
