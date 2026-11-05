@@ -1,444 +1,154 @@
 <!DOCTYPE html>
-<html lang="zh-TW">
+<html lang="zh-Hant">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>慈濟大學 經營管理學系 - 學生作品</title>
-    <!-- Google Fonts & Font Awesome Icons -->
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <style>
-        /* --------------------------------------------------
-         * Internal CSS - 與首頁完全一致之視覺與變數
-         * -------------------------------------------------- */
-        :root {
-            --primary-color: #0d3b66;     /* 慈濟深藍 */
-            --primary-light: #1d568c;
-            --accent-color: #2a9d8f;      /* 人文靜謐綠 */
-            --accent-light: #e8f5e9;
-            --secondary-color: #e9c46a;   /* 溫暖金黃 */
-            --bg-light: #f8f9fa;
-            --text-main: #2b2d42;
-            --text-muted: #6c757d;
-            --white: #ffffff;
-            --shadow-sm: 0 2px 8px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-lg: 0 10px 30px rgba(0,0,0,0.12);
-            --radius-sm: 8px;
-            --radius-md: 12px;
-            --radius-lg: 20px;
-            --transition: all 0.3s ease;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>學生作品 - 學系網站</title>
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      font-family: "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.6;
+      background-color: #f8f9fa;
+      color: #333;
+    }
 
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+    /* 導覽列 */
+    nav {
+      background-color: #1a252f;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    nav .logo {
+      color: #fff;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    nav ul {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+    }
+    nav a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+    nav a:hover, nav a.active {
+      color: #3498db;
+    }
 
-        body {
-            font-family: 'Noto Sans TC', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg-light);
-            color: var(--text-main);
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
+    /* 標題區 */
+    .page-header {
+      background-color: #2c3e50;
+      color: #fff;
+      padding: 40px 20px;
+      text-align: center;
+    }
 
-        a {
-            text-decoration: none;
-            color: inherit;
-        }
+    /* 作品網格 */
+    .container {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px;
+    }
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 30px;
+    }
+    .portfolio-card {
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .portfolio-card:hover {
+      transform: translateY(-5px);
+    }
+    .portfolio-card img {
+      width: 100%;
+      height: 240px;
+      object-fit: cover;
+      display: block;
+    }
+    .portfolio-info {
+      padding: 20px;
+    }
+    .portfolio-info h3 {
+      font-size: 1.3rem;
+      margin-bottom: 8px;
+      color: #2c3e50;
+    }
+    .portfolio-info p {
+      font-size: 0.95rem;
+      color: #666;
+      line-height: 1.5;
+    }
 
-        ul {
-            list-style: none;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 24px;
-            width: 100%;
-        }
-
-        /* Header & Navigation */
-        header {
-            background-color: var(--white);
-            box-shadow: var(--shadow-sm);
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            height: 80px;
-        }
-
-        .logo-area {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-        }
-
-        .logo-icon {
-            width: 48px;
-            height: 48px;
-            background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            box-shadow: 0 4px 10px rgba(13, 59, 102, 0.2);
-        }
-
-        .logo-text h1 {
-            font-size: 1.25rem;
-            color: var(--primary-color);
-            font-weight: 700;
-            line-height: 1.2;
-        }
-
-        .logo-text span {
-            font-size: 0.8rem;
-            color: var(--text-muted);
-            letter-spacing: 0.5px;
-        }
-
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 25px;
-        }
-
-        .nav-links a {
-            font-weight: 500;
-            color: var(--text-main);
-            transition: var(--transition);
-            position: relative;
-            padding: 8px 0;
-        }
-
-        .nav-links a:hover, .nav-links a.active {
-            color: var(--accent-color);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: var(--accent-color);
-            transition: var(--transition);
-        }
-
-        .nav-links a:hover::after, .nav-links a.active::after {
-            width: 100%;
-        }
-
-        .mobile-menu-btn {
-            display: none;
-            font-size: 1.5rem;
-            color: var(--primary-color);
-            cursor: pointer;
-        }
-
-        /* --------------------------------------------------
-         * Main Content Area (純照片區與純影片區)
-         * -------------------------------------------------- */
-        main {
-            flex-grow: 1;
-            padding: 60px 0;
-        }
-
-        /* 照片區域 */
-        .image-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-
-        .gallery-item {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .gallery-item:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .gallery-img {
-            width: 100%;
-            height: 240px;
-            object-fit: cover;
-            display: block;
-        }
-
-        /* 影片區域 */
-        .video-section {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
-        }
-
-        .video-card {
-            background: var(--white);
-            border-radius: var(--radius-md);
-            overflow: hidden;
-            box-shadow: var(--shadow-md);
-            transition: var(--transition);
-        }
-
-        .video-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .video-wrapper {
-            position: relative;
-            width: 100%;
-            padding-top: 56.25%; /* 16:9 比例 */
-            background-color: #000;
-        }
-
-        .video-wrapper video,
-        .video-wrapper iframe {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: none;
-        }
-
-        /* Footer & Contact */
-        footer {
-            background-color: var(--primary-color);
-            color: var(--white);
-            padding: 60px 0 20px;
-            margin-top: auto;
-        }
-
-        .footer-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
-        }
-
-        .footer-col h3 {
-            font-size: 1.2rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-        }
-
-        .footer-col h3::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: 0;
-            width: 40px;
-            height: 2px;
-            background-color: var(--accent-color);
-        }
-
-        .footer-col p, .footer-col li {
-            color: rgba(255, 255, 255, 0.75);
-            font-size: 0.95rem;
-            margin-bottom: 12px;
-        }
-
-        .footer-col i {
-            width: 25px;
-            color: var(--secondary-color);
-        }
-
-        .social-links {
-            display: flex;
-            gap: 12px;
-            margin-top: 15px;
-        }
-
-        .social-icon {
-            width: 38px;
-            height: 38px;
-            background: rgba(255, 255, 255, 0.1);
-            color: var(--white);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: var(--transition);
-        }
-
-        .social-icon:hover {
-            background: var(--accent-color);
-            transform: translateY(-3px);
-        }
-
-        .copyright {
-            text-align: center;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 20px;
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.5);
-        }
-
-        @media (max-width: 768px) {
-            .nav-links {
-                display: none;
-                position: absolute;
-                top: 80px;
-                left: 0;
-                width: 100%;
-                background: var(--white);
-                flex-direction: column;
-                padding: 20px;
-                box-shadow: var(--shadow-md);
-            }
-
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-        }
-    </style>
+    /* 頁尾 */
+    footer {
+      background-color: #1a252f;
+      color: #888;
+      text-align: center;
+      padding: 20px;
+      margin-top: 60px;
+    }
+  </style>
 </head>
 <body>
 
-    <!-- Header / Nav -->
-    <header>
-        <div class="container navbar">
-            <a href="index.html" class="logo-area">
-                <div class="logo-icon">
-                    <i class="fa-solid fa-graduation-cap"></i>
-                </div>
-                <div class="logo-text">
-                    <h1>慈濟大學 經營管理學系</h1>
-                    <span>Department of Business Management, TCU</span>
-                </div>
-            </a>
-            <div class="mobile-menu-btn" id="mobileMenuBtn">
-                <i class="fa-solid fa-bars"></i>
-            </div>
-            <nav class="nav-links" id="navLinks">
-                <a href="index.html">系所簡介</a>
-                <a href="studentworks.html" class="active">學生作品</a>
-                <a href="index.html#facilities">教學與實習場域</a>
-                <a href="index.html#partners">合作夥伴</a>
-                <a href="index.html#contact">聯絡我們</a>
-            </nav>
+  <!-- 導覽列（超連結連至 index.html） -->
+  <nav>
+    <div class="logo">學系名稱</div>
+    <ul>
+      <li><a href="index.html">首頁</a></li>
+      <li><a href="works.html" class="active">學生作品</a></li>
+    </ul>
+  </nav>
+
+  <header class="page-header">
+    <h1>學生作品展示</h1>
+    <p>歷屆與本學期優秀作品呈現</p>
+  </header>
+
+  <div class="container">
+    <div class="portfolio-grid">
+      
+      <!-- 作品 1：G002 -->
+      <div class="portfolio-card">
+        <img src="G002.jpg" alt="學生作品 G002">
+        <div class="portfolio-info">
+          <h3>學生作品 A</h3>
+          <p>作者：學生姓名</p>
+          <p>這裡填寫作品 G002 的創作理念、使用技術與簡介說明。</p>
         </div>
-    </header>
+      </div>
 
-    <!-- Main Content Area -->
-    <main>
-        <div class="container">
-            
-            <!-- 1. 純照片區 -->
-            <div class="image-gallery">
-                <div class="gallery-item">
-                    <img src="graph/work1.jpg" alt="照片 1" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="graph/work2.jpg" alt="照片 2" class="gallery-img">
-                </div>
-                <div class="gallery-item">
-                    <img src="graph/work3.jpg" alt="照片 3" class="gallery-img">
-                </div>
-            </div>
-
-            <!-- 2. 純影片區 -->
-            <div class="video-section">
-                <!-- MP4 影片 -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <video controls poster="graph/video-thumb1.jpg">
-                            <source src="graph/demo.mp4" type="video/mp4">
-                        </video>
-                    </div>
-                </div>
-
-                <!-- YouTube 嵌入影片 -->
-                <div class="video-card">
-                    <div class="video-wrapper">
-                        <iframe src="https://www.youtube.com/embed/VIDEO_ID" allowfullscreen></iframe>
-                    </div>
-                </div>
-            </div>
-
+      <!-- 作品 2：G003 -->
+      <div class="portfolio-card">
+        <img src="G003.jpg" alt="學生作品 G003">
+        <div class="portfolio-info">
+          <h3>學生作品 B</h3>
+          <p>作者：學生姓名</p>
+          <p>這裡填寫作品 G003 的創作理念、使用技術與簡介說明。</p>
         </div>
-    </main>
+      </div>
 
-    <!-- Footer -->
-    <footer id="contact">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>慈濟大學 經營管理學系</h3>
-                    <p>Department of Business Management, TCU</p>
-                    <p style="margin-top: 15px;">培養具備專業力、道德力與永續觀的未來管理精英。</p>
-                </div>
+    </div>
+  </div>
 
-                <div class="footer-col">
-                    <h3>聯絡資訊</h3>
-                    <ul>
-                        <li><i class="fa-solid fa-location-dot"></i> 地址：花蓮市介仁街67號</li>
-                        <li><i class="fa-solid fa-phone"></i> 電話：03-857-2677 #31682</li>
-                        <li><i class="fa-solid fa-envelope"></i> 信箱：ss62@gms.tcu.edu.tw</li>
-                    </ul>
-                </div>
+  <footer>
+    <p>&copy; 2026 學系名稱 All Rights Reserved.</p>
+  </footer>
 
-                <div class="footer-col">
-                    <h3>個人資料保護窗口</h3>
-                    <p>主任：林珍如 主任</p>
-                    <p>電話：03-857-2677 #33126</p>
-                    <p>信箱：lih5374@gms.tcu.edu.tw</p>
-                    <div class="social-links">
-                        <a href="https://www.youtube.com/@_tcust5687" target="_blank" class="social-icon"><i class="fa-brands fa-youtube"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-facebook-f"></i></a>
-                        <a href="#" class="social-icon"><i class="fa-brands fa-instagram"></i></a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="copyright">
-                <p>&copy; 慈濟大學經營管理學系 版權所有 | Tzu Chi University. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Internal JavaScript -->
-    <script>
-        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
-        const navLinks = document.getElementById('navLinks');
-
-        mobileMenuBtn.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
-
-        document.querySelectorAll('.nav-links a').forEach(link => {
-            link.addEventListener('click', () => {
-                navLinks.classList.remove('active');
-            });
-        });
-    </script>
 </body>
 </html>
