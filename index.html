@@ -97,9 +97,7 @@
             font-size: 1.05rem;
         }
 
-        /* --------------------------------------------------
-         * Header & Navigation
-         * -------------------------------------------------- */
+        /* Header & Navigation */
         header {
             background-color: var(--white);
             box-shadow: var(--shadow-sm);
@@ -188,16 +186,12 @@
             cursor: pointer;
         }
 
-        /* --------------------------------------------------
-         * Hero Section
-         * -------------------------------------------------- */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, rgba(13, 59, 102, 0.9), rgba(42, 157, 143, 0.82)), 
-                        url('graph/hero-bg.jpg') center/cover no-repeat;
+            background: linear-gradient(135deg, rgba(13, 59, 102, 0.92), rgba(42, 157, 143, 0.85));
             color: var(--white);
-            padding: 120px 0 100px;
+            padding: 100px 0 80px;
             text-align: center;
-            position: relative;
         }
 
         .hero-content {
@@ -218,67 +212,44 @@
         }
 
         .hero h1 {
-            font-size: 3rem;
+            font-size: 2.8rem;
             font-weight: 700;
             margin-bottom: 20px;
             line-height: 1.3;
         }
 
         .hero p {
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             opacity: 0.9;
             margin-bottom: 35px;
             font-weight: 300;
         }
 
-        .hero-btns {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-        }
-
-        .btn {
-            padding: 12px 30px;
-            border-radius: 30px;
-            font-weight: 600;
-            transition: var(--transition);
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            cursor: pointer;
-            border: none;
-        }
-
-        .btn-primary {
-            background-color: var(--accent-color);
-            color: var(--white);
-        }
-
-        .btn-primary:hover {
-            background-color: #238579;
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(42, 157, 143, 0.4);
-        }
-
-        .btn-outline {
-            background-color: transparent;
-            color: var(--white);
-            border: 2px solid var(--white);
-        }
-
-        .btn-outline:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-            transform: translateY(-2px);
-        }
-
         /* --------------------------------------------------
-         * Feature Grid / Highlights
+         * 首頁大照片展示區 (1 張照片)
          * -------------------------------------------------- */
+        .home-photo-section {
+            padding: 40px 0;
+        }
+
+        .home-photo-wrapper {
+            width: 100%;
+            max-height: 500px;
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            box-shadow: var(--shadow-md);
+        }
+
+        .home-photo-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Core Highlights */
         .features {
-            margin-top: -50px;
-            position: relative;
-            z-index: 10;
+            margin-top: 40px;
         }
 
         .feature-grid {
@@ -297,7 +268,7 @@
         }
 
         .feature-card:hover {
-            transform: translateY(-10px);
+            transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
         }
 
@@ -312,12 +283,6 @@
             justify-content: center;
             font-size: 1.8rem;
             margin: 0 auto 20px;
-            transition: var(--transition);
-        }
-
-        .feature-card:hover .feature-icon {
-            background: var(--accent-color);
-            color: var(--white);
         }
 
         .feature-card h3 {
@@ -331,9 +296,7 @@
             font-size: 0.95rem;
         }
 
-        /* --------------------------------------------------
-         * History & Vision Section (Tabs)
-         * -------------------------------------------------- */
+        /* History & Vision Section (Tabs) */
         .about-section {
             background-color: var(--white);
         }
@@ -430,13 +393,8 @@
             top: 5px;
         }
 
-        .timeline-item:nth-child(odd) .timeline-dot {
-            right: -8px;
-        }
-
-        .timeline-item:nth-child(even) .timeline-dot {
-            left: -8px;
-        }
+        .timeline-item:nth-child(odd) .timeline-dot { right: -8px; }
+        .timeline-item:nth-child(even) .timeline-dot { left: -8px; }
 
         .timeline-content {
             background: var(--white);
@@ -452,9 +410,7 @@
             margin-bottom: 5px;
         }
 
-        /* --------------------------------------------------
-         * Facilities Section
-         * -------------------------------------------------- */
+        /* Facilities Section */
         .facilities-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
@@ -472,13 +428,6 @@
         .facility-card:hover {
             transform: translateY(-8px);
             box-shadow: var(--shadow-lg);
-        }
-
-        .facility-img {
-            height: 220px;
-            width: 100%;
-            object-fit: cover;
-            position: relative;
         }
 
         .facility-body {
@@ -507,9 +456,7 @@
             font-weight: 500;
         }
 
-        /* --------------------------------------------------
-         * Partners / Affiliates
-         * -------------------------------------------------- */
+        /* Partners / Affiliates */
         .partners-section {
             background-color: var(--white);
         }
@@ -539,13 +486,9 @@
             transform: scale(1.05);
         }
 
-        .partner-box i {
-            font-size: 1.8rem;
-        }
+        .partner-box i { font-size: 1.8rem; }
 
-        /* --------------------------------------------------
-         * Footer & Contact
-         * -------------------------------------------------- */
+        /* Footer & Contact */
         footer {
             background-color: var(--primary-color);
             color: var(--white);
@@ -618,7 +561,6 @@
             color: rgba(255, 255, 255, 0.5);
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .nav-links {
                 display: none;
@@ -632,17 +574,10 @@
                 box-shadow: var(--shadow-md);
             }
 
-            .nav-links.active {
-                display: flex;
-            }
-
-            .mobile-menu-btn {
-                display: block;
-            }
-
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
             .hero h1 { font-size: 2.2rem; }
             .hero p { font-size: 1rem; }
-
             .timeline::before { left: 20px; }
             .timeline-item {
                 width: 100%;
@@ -652,7 +587,6 @@
             }
             .timeline-item:nth-child(even) { left: 0; }
             .timeline-dot, .timeline-item:nth-child(odd) .timeline-dot, .timeline-item:nth-child(even) .timeline-dot { left: 12px; }
-            .hero-btns { flex-direction: column; }
         }
     </style>
 </head>
@@ -689,10 +623,13 @@
             <span class="hero-tag">慈濟大學 經營管理學系</span>
             <h1>培育具備人文素養與國際視野的經營管理人才</h1>
             <p>結合個案教學、翻轉教育、智慧零售與知足咖啡館實務經驗，打造兼具理論與實務的學習環境。</p>
-            <div class="hero-btns">
-                <a href="#facilities" class="btn btn-primary"><i class="fa-solid fa-compass"></i> 探索專業教室</a>
-                <a href="#contact" class="btn btn-outline"><i class="fa-solid fa-envelope"></i> 聯絡我們</a>
-            </div>
+        </div>
+    </section>
+
+    <!-- 首頁大照片 (1 張照片) -->
+    <section class="container home-photo-section">
+        <div class="home-photo-wrapper">
+            <img src="graph/home-photo.jpg" alt="首頁封面照片">
         </div>
     </section>
 
@@ -801,7 +738,6 @@
 
             <div class="facilities-grid">
                 <div class="facility-card">
-                    <img src="graph/case-room.jpg" alt="個案教學研討室" class="facility-img">
                     <div class="facility-body">
                         <h3>個案教學研討室</h3>
                         <p>以翻轉教育理論設計的個案討論環境，配備互動圓桌與討論設備，激發團隊腦力激盪與高效率溝通。</p>
@@ -810,7 +746,6 @@
                 </div>
 
                 <div class="facility-card">
-                    <img src="graph/cafe.jpg" alt="知足咖啡館" class="facility-img">
                     <div class="facility-body">
                         <h3>實習教室 (知足咖啡館)</h3>
                         <p>外場行銷體驗實習場域，建置高規專業餐飲與服務設備，讓學生親自操盤品質控制、顧客關係與菜單行銷。</p>
@@ -819,7 +754,6 @@
                 </div>
 
                 <div class="facility-card">
-                    <img src="graph/business-room.jpg" alt="國際商務教室" class="facility-img">
                     <div class="facility-body">
                         <h3>國際商務教室</h3>
                         <p>提供安靜舒適研習空間，配備多國語言研習資料與簡報連線系統，培養具備國際視野之商業人才。</p>
@@ -828,7 +762,6 @@
                 </div>
 
                 <div class="facility-card">
-                    <img src="graph/presentation-room.jpg" alt="簡報與溝通教室" class="facility-img">
                     <div class="facility-body">
                         <h3>簡報與溝通教室</h3>
                         <p>具備高規格簡報投影與視訊影音設備，專為商務演練、模擬面試與主題簡報訓練打造之專業場合。</p>
@@ -837,7 +770,6 @@
                 </div>
 
                 <div class="facility-card">
-                    <img src="graph/smart-store.jpg" alt="智慧商店" class="facility-img">
                     <div class="facility-body">
                         <h3>智慧商店實境區</h3>
                         <p>建置虛擬情境，讓學生提早適應無人商店、自動結帳系統與智慧零售數據數據分析觀念。</p>
